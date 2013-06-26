@@ -70,7 +70,7 @@ target(loadModulesResources: "Load modules resources") {
     grailsResourceProcessor.metaClass.getMimeType = { uri ->
         switch (uri.tokenize('.').last()) {
             case 'css':
-                return 'test/css'
+                return 'text/css'
             case 'js':
                 return 'application/javascript'
             default:
