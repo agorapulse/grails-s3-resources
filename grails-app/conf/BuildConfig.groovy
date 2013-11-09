@@ -1,24 +1,34 @@
-grails.project.class.dir = "target/classes"
-grails.project.test.class.dir = "target/test-classes"
-grails.project.test.reports.dir = "target/test-reports"
+grails.project.work.dir = 'target'
+grails.project.source.level = 1.6
 
-grails.project.dependency.resolution = {
-    inherits 'global'
-    log 'warn'
+grails {
+    project {
+        dependency {
+            distribution = {
+                remoteRepository(id: "internal", url: "file://${basedir}/mvn-repo")
+            }
+            resolution = {
+                inherits 'global'
+                log 'warn'
+                repositories {
+                    grailsCentral()
+                    mavenLocal()
+                    mavenCentral()
+                }
+                dependencies {
+                }
+                plugins {
+                    build ':release:3.0.1', ':rest-client-builder:1.0.3', {
+                        export = false
+                    }
 
-    repositories {
-        grailsCentral()
-        mavenLocal()
-        mavenCentral()
-    }
+                    compile ':resources:1.2'
+                    compile ':aws-sdk:1.6.4'
+                }
 
-    plugins {
-        build(':release:2.2.1', ':rest-client-builder:1.0.3') {
-            export = false
+            }
+
         }
-        compile ':resources:1.2'
-        compile ':aws-sdk:1.4.7'
+
     }
 }
-
-grails.project.repos.default = 'snapshots'
