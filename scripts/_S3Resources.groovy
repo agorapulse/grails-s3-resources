@@ -9,7 +9,7 @@ includeTargets << grailsScript("_GrailsInit")
 includeTargets << grailsScript("_GrailsBootstrap")
 
 target(loadConfig: "Load S3 resources config") {
-    depends(parseArguments)
+    depends(compile, parseArguments)
 
     if (argsMap['help']) {
         println USAGE
