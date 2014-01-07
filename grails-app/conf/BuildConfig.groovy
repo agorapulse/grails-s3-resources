@@ -33,16 +33,3 @@ grails {
 
     }
 }
-
-agorapulse.repositories.url = 'http://repository.agorapulse.com/nexus/content/repositories'
-grails.project.dependency.distribution = {
-    // To deploy run "grails maven-deploy --repository=snapshots"
-    remoteRepository(id: 'snapshots', url: "${agorapulse.repositories.url}/snapshots/") {
-        authentication username: 'deployment', password: 'eej-yoylm-of-cev'
-    }
-    // To deploy run "grails maven-deploy --repository=releases"
-    remoteRepository(id: 'releases', url: "${agorapulse.repositories.url}/releases/") {
-        authentication username: 'deployment', password: 'eej-yoylm-of-cev'
-    }
-}
-grails.project.repos.default = 'snapshots'
